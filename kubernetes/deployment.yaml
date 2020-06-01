@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: poc-devops-bk
+# namespace: poc-devops
+  labels:
+    app: poc-devops-bk
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        apps: poc-devops-bk-service
+    spec:
+      containers:
+      - name: poc-devops-bk-service
+        image: gcr.io/com-poc-ci-cd/poc-devops-bk:1.0.2
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: gcr-json-key
+
