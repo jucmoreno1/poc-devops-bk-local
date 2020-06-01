@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo 'Inicia construcción del proyecto...'
 				sh 'cd source && chmod +x gradlew'
-                sh './gradlew clean build'
+                sh 'cd source && ./gradlew clean build'
                 echo 'Armando la imagen para subir a Google Cloud Platform'
                 sh "docker build -f docker/Dockerfile -t  gcr.io/${projectGCP}/${applicationName}:${versionImage}${env.BUILD_NUMBER} ."
             }
