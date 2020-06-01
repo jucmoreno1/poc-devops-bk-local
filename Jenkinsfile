@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo 'Se lanzan las pruebas unitarias...'
                 echo 'Se realizaron las pruebas, bueno no hay...'
-                sh './gradlew check'
+                sh 'cd source && ./gradlew check'
             }
         }
         stage('Desplegado') {
@@ -51,7 +51,7 @@ pipeline {
     post {
         always {
             echo 'Se cargan los resultados de las pruebas unitarias...'
-            junit 'build/test-results/**/*.xml'
+            //junit 'build/test-results/**/*.xml'
         }
     }
 }
