@@ -13,9 +13,21 @@ spec:
         apps: poc-devops-bk-service
     spec:
       containers:
+      - name: esp
+        image: gcr.io/endpoints-release/endpoints-runtime:1
+        args: [
+            "--http_port=8081",
+            "--backend=127.0.0.1:8080",
+            "--service=pocdevops-bk-local-cloudendpoint-api.endpoints.gcpcert-272801.cloud.goog",
+            "--rollout_strategy=managed",
+          ]
+        ports:
+#Este puerto el container del CloudEndpoint  el (esp)      
+          - containerPort: 8081
       - name: poc-devops-bk-service
         image: gcr.io/com-poc-ci-cd/poc-devops-bk:1.0.2
         ports:
+#Es la que expone el Docker tu microservicio        
         - containerPort: 8080
       imagePullSecrets:
       - name: gcr-json-key

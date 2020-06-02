@@ -1,0 +1,101 @@
+swagger: "2.0"
+info:
+  description: "Documentación oficial de la POC CICD backend."
+  title: "poc-devops-bk-cloudendpoint-api"
+  version: "1.0.0"
+host: "pocdevops-bk-local-cloudendpoint-api.endpoints.gcpcert-272801.cloud.goog"
+x-google-endpoints:
+- name: "pocdevops-bk-local-cloudendpoint-api.endpoints.gcpcert-272801.cloud.goog"
+#IP del service expuesto
+  target: "34.69.148.154"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+schemes:
+# Uncomment the next line if you configure SSL for this API.
+# - "https"
+  - "http"
+paths:
+  "/api/calcularEdad":
+    post:
+      description: "Metodo que calcula la edad"
+      operationId: "calcularEdad"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "JSON  que regresa tu edad"
+          schema:
+            $ref: "#/definitions/objetoGenerico"
+      parameters:
+        -
+          description: '"calcularEdad":{"nombre":"algun nombre", "fechaNacimiento":"2002-01-10T01:01:00", "edad":0}'
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/objetoGenerico"
+      security:
+        - api_key: []
+  "/api/v1":
+    get:
+      description: "Metodo de prueba Api entrada"
+      operationId: "get test 1a"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "JSON  de prueba"
+          schema:
+            $ref: "#/definitions/objetoGenerico"
+      parameters:
+        -
+          description: 'test de get'
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/objetoGenerico"
+      security:
+        - api_key: [] 
+  "/api/v2":
+    get:
+      description: "Metodo de prueba Api Salida"
+      operationId: "get test 2"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "JSON  de prueba"
+          schema:
+            $ref: "#/definitions/objetoGenerico"
+      parameters:
+        -
+          description: 'test de get'
+          in: body
+          name: request
+          required: true
+          schema:
+            $ref: "#/definitions/objetoGenerico"
+      security:
+        - api_key: [] 
+definitions:
+  objetoGenerico:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+  authInfoResponse:
+    properties:
+      id:
+        type: "string"
+      email:
+        type: "string"
+securityDefinitions:
+  # This section configures basic authentication with an API key.
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"
+ 
