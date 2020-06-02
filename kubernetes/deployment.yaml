@@ -25,7 +25,7 @@ spec:
 #Este puerto el container del CloudEndpoint  el (esp)      
           - containerPort: 8081
       - name: poc-devops-bk-service
-        image: gcr.io/com-poc-ci-cd/poc-devops-bk:1.0.2
+        image: gcr.io/gcpcert-272801/poc-devops-bk:1.0.2
         ports:
 #Es la que expone el Docker tu microservicio        
         - containerPort: 8080

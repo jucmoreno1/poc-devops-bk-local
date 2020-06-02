@@ -39,7 +39,9 @@ pipeline {
                 echo 'Se crea el namespace si no existe'
                 sh "kubectl get ns ${namespace} || kubectl create ns ${namespace}"
                 //echo 'Update the imagetag to the latest version'
-                sh "sed -i.bak 's#.*gcr.io/${projectGCP}.*#        image: gcr.io/${projectGCP}/${applicationName}:${versionImage}${env.BUILD_NUMBER}#'  kubernetes/deployment.yaml"
+                //sh "sed -i.bak 's#.*gcr.io.*#        image: gcr.io/${projectGCP}/${applicationName}:${versionImage}${env.BUILD_NUMBER}#'  kubernetes/deployment.yaml"
+                // le agregamos manualmente el nombre del proyecto ya que tenemos la imagen del cloudenpoint -> project ID: gcpcert-272801
+                sh "sed -i.bak 's#.*gcr.io/gcpcert-272801.*#        image: gcr.io/${projectGCP}/${applicationName}:${versionImage}${env.BUILD_NUMBER}#'  kubernetes/deployment.yaml"
                 //sh cscript replace.vbs "deployment.yaml" "gcr.io" "gcr.io/${projectGCP}/${applicationName}:${versionImage}${env.BUILD_NUMBER}"
 				echo 'Create or update resources'
                 sh "kubectl apply -f kubernetes/deployment.yaml"
