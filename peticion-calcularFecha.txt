@@ -5,7 +5,6 @@ gcloud endpoints services deploy openapi.yaml
 https://editor.swagger.io/
 
 
-AIzaSyAlNvPY20t6WAOOdpA2ZqlhJB2JNQ0aZD0
 
 
                                                                                                             curl --request POST 'http://pocdevops-bk-local-cloudendpoint-api.endpoints.gcpcert-272801.cloud.goog/api/calcularEdad?key=AIzaSyAlNvPY20t6WAOOdpA2ZqlhJB2JNQ0aZD0' \
