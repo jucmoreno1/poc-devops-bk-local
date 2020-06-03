@@ -3,3 +3,20 @@
 gcloud endpoints services deploy openapi.yaml
 
 https://editor.swagger.io/
+
+
+AIzaSyAlNvPY20t6WAOOdpA2ZqlhJB2JNQ0aZD0
+
+
+                                                                                                            curl --request POST 'http://pocdevops-bk-local-cloudendpoint-api.endpoints.gcpcert-272801.cloud.goog/api/calcularEdad?key=AIzaSyAlNvPY20t6WAOOdpA2ZqlhJB2JNQ0aZD0' \
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --data '{"nombre":"algun nombre","fechaNacimiento":"2002-01-10T01:01:00"}' \
+  --compressed
+
+
+gcloud services enable servicemanagement.googleapis.com
+    gcloud services enable servicecontrol.googleapis.com
+    gcloud services enable endpoints.googleapis.com
+
+

@@ -6,7 +6,7 @@ info:
 host: "pocdevops-bk-local-cloudendpoint-api.endpoints.gcpcert-272801.cloud.goog"
 x-google-endpoints:
 - name: "pocdevops-bk-local-cloudendpoint-api.endpoints.gcpcert-272801.cloud.goog"
-#IP del service expuesto
+#IP del service expuesto, dentro del Service del cluster.
   target: "34.69.148.154"
 consumes:
   - "application/json"
@@ -49,14 +49,6 @@ paths:
           description: "JSON  de prueba"
           schema:
             $ref: "#/definitions/objetoGenerico"
-      parameters:
-        -
-          description: 'test de get'
-          in: body
-          name: request
-          required: true
-          schema:
-            $ref: "#/definitions/objetoGenerico"
       security:
         - api_key: [] 
   "/api/v2":
@@ -68,14 +60,6 @@ paths:
       responses:
         200:
           description: "JSON  de prueba"
-          schema:
-            $ref: "#/definitions/objetoGenerico"
-      parameters:
-        -
-          description: 'test de get'
-          in: body
-          name: request
-          required: true
           schema:
             $ref: "#/definitions/objetoGenerico"
       security:
